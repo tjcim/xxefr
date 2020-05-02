@@ -1,0 +1,28 @@
+# Grab some XXE tools
+---
+- name: Make tools directory
+  file:
+    path: /home/vagrant/tools
+    state: directory
+    mode: '0755'
+
+- name: Clone xxeftp
+  git:
+    repo: 'https://github.com/staaldraad/xxeserv'
+    dest: /home/vagrant/tools/xxeftp
+
+- name: Clone 230-OOB
+  git:
+    repo: 'https://github.com/lc/230-OOB'
+    dest: /home/vagrant/tools/230-OOB
+
+- name: Install Ruby for XXEinjector
+  apt:
+    name: ruby
+    state: latest
+  become: yes
+
+- name: Clone XXEinjector
+  git:
+    repo: 'https://github.com/enjoiz/XXEinjector'
+    dest: /home/vagrant/tools/XXEinjector

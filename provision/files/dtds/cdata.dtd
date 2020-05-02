@@ -1,0 +1,5 @@
+<!ENTITY % file SYSTEM "file:///home/vagrant/test_files/heart.txt">
+<!ENTITY % start "<![CDATA[">
+<!ENTITY % end "]]>">
+<!ENTITY % wrapper "<!ENTITY all '%start;%file;%end;'>">
+%wrapper;

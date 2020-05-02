@@ -1,0 +1,22 @@
+---
+- hosts: all
+  vars:
+    app_dir: "/vagrant"
+    working_dir: "/home/vagrant"
+
+  tasks:
+    - name: update box
+      apt:
+        update_cache: yes
+        upgrade: yes
+      become: yes
+
+    - include_tasks: eclipse.yml
+    - include_tasks: python.yml
+    - include_tasks: hugo.yml
+    - include_tasks: docs.yml
+    - include_tasks: tomcat.yml
+    - include_tasks: nginx.yml
+    - include_tasks: xxe_tools.yml
+    - include_tasks: xxe_files.yml
+    - include_tasks: php_site.yml

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="/php/static/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container" id="registration">
+      <h1>PHP XML Form</h1>
+      <form id="RegisterUserForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" class="form-control" value="XXE" />
+        </div>
+        <div class="form-group">
+          <label for="tel">Phone Number</label>
+          <input id="tel" name="tel" type="tel" class="form-control" value="(555) 555-1734" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" class="form-control" value="this@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" name="password" class="form-control" type="text" value="pass"/>
+        </div>
+        <div class="form-check">
+          <input id="acceptTerms" name="acceptTerms" type="checkbox" checked/>
+          <label for="acceptTerms">
+            I agree to the <a href="">Terms and Conditions</a> and <a href="">Privacy Policy</a>
+          </label>
+        </div>
+        <button class="btn btn-primary" id="registerNew" onclick="XMLFunction()">Register</button>
+      </form>
+      <br/>
+      <div><p><small id="errorMessage"></small></p></div>
+      <br/>
+      <hr/>
+      <label for="data">Data</label>
+      <textarea id="data" class="form-control" placeholder="XML to be submitted" rows="10" spellcheck="false"></textarea>
+    </div>
+    <script type="text/javascript" src="/php/static/js/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript">
+      function XMLFunction(){
+        event.preventDefault();
+        var xml = $('#data').val();
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if(xmlhttp.readyState == 4){
+            document.getElementById('errorMessage').innerHTML = xmlhttp.responseText;
+          }
+        }
+        xmlhttp.open("POST","process.php",true);
+        xmlhttp.send(xml);
+      };
+      $(function() {
+        var $nameInput = $('#name');
+        var $telInput = $('#tel');
+        var $emailInput = $('#email');
+        var $passwordInput = $('#password');
+        var $dataInput = $('#data');
+        function onChange() {
+          $dataInput.val(
+            '<root>\n' +
+            '  <name>' + $nameInput.val() + '</name>\n' +
+            '  <tel>' + $telInput.val() + '</tel>\n' +
+            '  <email>' + $emailInput.val() + '</email>\n' +
+            '  <password>' + $passwordInput.val() + '</password>\n' +
+            '</root>');
+        };
+        $('#name')
+          .change(onChange)
+          .keyup(onChange);
+        $('#tel')
+          .change(onChange)
+          .keyup(onChange);
+        $('#email')
+          .change(onChange)
+          .keyup(onChange);
+        $('#password')
+          .change(onChange)
+          .keyup(onChange);
+        onChange();
+      });
+    </script>
+  </body>
+</html>

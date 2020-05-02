@@ -1,0 +1,30 @@
+---
+- name: Install openbox
+  apt:
+    name: openbox
+    state: latest
+  become: yes
+
+- name: Install OpenJDK
+  apt:
+    name: openjdk-8-jdk
+    state: latest
+  become: yes
+
+- name: Install Eclipse
+  snap:
+    name: eclipse
+    classic: yes
+  become: yes
+
+- name: Install unzip
+  apt:
+    name: unzip
+    state: latest
+  become: yes
+
+- name: Install libwebkit
+  apt:
+    name: libwebkitgtk-3.0-0
+    state: latest
+  become: yes

@@ -1,0 +1,5 @@
+<!ENTITY % file SYSTEM "file:///etc/fstab">
+<!ENTITY % start "<![CDATA[">
+<!ENTITY % end "]]>">
+<!ENTITY % wrapper "<!ENTITY all '%start;%file;%end;'>">
+%wrapper;

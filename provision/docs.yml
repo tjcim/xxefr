@@ -1,0 +1,7 @@
+# Runs hugo build for docs
+---
+- name: Build Docs
+  shell:
+    cmd: hugo
+    chdir: /vagrant/docs
+  become: yes

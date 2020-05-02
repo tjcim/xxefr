@@ -1,0 +1,71 @@
+# Install PHP
+---
+
+- name: Install PHP and related packages
+  apt:
+    pkg:
+      - php
+      - php-fpm
+      - php-dom
+      - php-pear
+      - php-dev
+      - tcl
+      - tcl-dev
+      - expect
+      - expect-dev
+      - tcl-expect-dev
+  become: yes
+
+- name: Create symlink for tcl.h
+  file:
+    src: /usr/include/tcl/tcl.h
+    dest: /usr/include/tcl.h
+    state: link
+  become: yes
+
+- name: Create symlink for tclDecls.h
+  file:
+    src: /usr/include/tcl/tclDecls.h
+    dest: /usr/include/tclDecls.h
+    state: link
+  become: yes
+
+- name: Create symlink for tclPlatDecls.h
+  file:
+    src: /usr/include/tcl/tclPlatDecls.h
+    dest: /usr/include/tclPlatDecls.h
+    state: link
+  become: yes
+
+- name: Create symlink for expect_tcl.h
+  file:
+    src: /usr/include/tcl/expect_tcl.h
+    dest: /usr/include/expect_tcl.h
+    state: link
+  become: yes
+
+- name: Build expect for php
+  shell:
+    cmd: "pecl install expect"
+    creates: /usr/lib/php/20170718/expect.so
+  become: yes
+
+- name: Add extension to php
+  lineinfile:
+    path: /etc/php/7.2/fpm/php.ini
+    regexp: '^extension="expect.so"'
+    line: extension="expect.so"
+  become: yes
+
+- name: Add www-data to vagrant group
+  user:
+    name: www-data
+    groups: vagrant
+    append: yes
+  become: yes
+
+- name: Restart php-fpm
+  service:
+    name: php7.2-fpm
+    state: restarted
+  become: yes

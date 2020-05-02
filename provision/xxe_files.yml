@@ -1,0 +1,29 @@
+# Grab some XXE tools
+---
+- name: Make test_files directory
+  file:
+    path: /home/vagrant/test_files
+    state: directory
+
+- name: Make dtds directory
+  file:
+    path: /home/vagrant/dtds
+    state: directory
+
+- name: Copy test_files
+  copy:
+    src: files/test_files/
+    dest: /home/vagrant/test_files/
+
+- name: Copy dtds
+  copy:
+    src: files/dtds/
+    dest: /home/vagrant/dtds/
+
+- name: Add line to fstab
+  lineinfile:
+    path: /etc/fstab
+    line: "# <device		mount point	file system type	options"
+    insertbefore: BOF
+    regexp: '^# <device'
+  become: yes

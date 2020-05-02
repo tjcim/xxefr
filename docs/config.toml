@@ -1,0 +1,22 @@
+languageCode = "en-us"
+title = "XXE Firing Range"
+theme = ["xxe", "learn"]
+publishdir = "/var/www/html/docs"
+baseURL = "http://localhost:8085/docs/"
+canonifyURLs = true
+
+[outputs]
+home = [ "HTML", "RSS", "JSON" ]
+
+[params]
+disableInlineCopyToClipBoard = true
+disableLanguageSwitchingButton = false
+disableBreadcrumb = true
+ordersectionsby = "weight"
+themeVariant = "mine"
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://github.com/tjcim/xxefr"
+weight = 10

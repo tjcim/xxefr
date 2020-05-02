@@ -1,0 +1,42 @@
+---
+- name: Install nginx
+  apt:
+    name: nginx
+  become: yes
+
+- name: Unlink default
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  become: yes
+
+- name: Copy nginx.conf
+  copy:
+    src: files/nginx.conf
+    dest: /etc/nginx/nginx.conf
+  become: yes
+
+- name: Copy site.conf
+  copy:
+    src: files/site.conf
+    dest: /etc/nginx/sites-available/site.conf
+  become: yes
+
+- name: Create symlink
+  file:
+    src: /etc/nginx/sites-available/site.conf
+    dest: /etc/nginx/sites-enabled/site.conf
+    state: link
+  become: yes
+
+- name: Copy homepage
+  copy:
+    src: files/homepage/index.html
+    dest: /var/www/html/index.html
+  become: yes
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: yes

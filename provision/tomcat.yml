@@ -1,0 +1,72 @@
+---
+- name: Install Tomcat
+  apt:
+    pkg:
+      - tomcat9
+      - tomcat9-docs
+      - tomcat9-examples
+      - tomcat9-admin
+    state: latest
+  become: yes
+
+- name: Add vagrant to tomcat group
+  user:
+    name: vagrant
+    groups: tomcat
+    append: yes
+  become: yes
+
+- name: Install maven
+  apt:
+    name: maven
+    state: latest
+  become: yes
+
+- name: Delete any existing webapps
+  file:
+    path: /var/lib/tomcat9/webapps/xxe
+    state: absent
+  become: yes
+
+- name: Delete any existing wars
+  file:
+    path: /var/lib/tomcat9/webapps/xxe.war
+    state: absent
+  become: yes
+
+- name: Compile war file
+  shell:
+    cmd: mvn compile war:war
+    chdir: /vagrant/xxe
+
+- name: Copy war file
+  copy:
+    remote_src: yes
+    src: /vagrant/xxe/target/xxe.war
+    dest: /var/lib/tomcat9/webapps/xxe.war
+  become: yes
+
+- name: Fix permissions on war file
+  file:
+    path: /var/lib/tomcat9/webapps/xxe.war
+    owner: tomcat
+    group: tomcat
+    mode: '0775'
+  become: yes
+
+- name: Add tomcat user login info
+  blockinfile:
+    path: /etc/tomcat9/tomcat-users.xml
+    insertbefore: "^<\/tomcat-users>"
+    block: |
+      <role rolename="admin"/>
+      <role rolename="admin-gui"/>
+      <role rolename="manager-gui"/>
+      <user username="xxe" password="xxe" roles="admin,manager-gui,admin-gui"/>
+  become: yes
+
+- name: Restart Tomcat
+  service:
+    name: tomcat9
+    state: restarted
+  become: yes
