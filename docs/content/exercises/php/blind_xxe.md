@@ -72,7 +72,7 @@ We can then base64 decode this and we get the hostname:
 
 We can automate this process a bit using XXEinjector.
 
-First we save an example request and include a mark (`XXEINJECTOR`) on where XXEinjector should inject the DTD. (`/home/vagrant/test_files/php_xxeinjector_req.txt`)
+First we save an example request and include a mark (`XXEINJECTOR`) where XXEinjector should inject the DTD. (`/home/vagrant/test_files/php_xxeinjector_req.txt`)
 
 ```plaintext
 POST /php/process.php HTTP/1.1

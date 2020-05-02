@@ -35,6 +35,18 @@
     dest: /var/www/html/index.html
   become: yes
 
+- name: Make secret directory
+  file:
+    path: /opt/secret
+    state: directory
+  become: yes
+
+- name: Copy secret
+  copy:
+    src: files/secret.txt
+    dest: /opt/secret/secret.txt
+  become: yes
+
 - name: Restart nginx
   service:
     name: nginx

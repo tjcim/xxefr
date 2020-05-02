@@ -72,9 +72,9 @@ Now submit the following in the app
 ]>
 ```
 
-![Blind XXE Illegal Character URL](/static/img/blind_xxe_illegal_character_url.png)
+![Blind XXE Premature End](/static/img/premature_end.png)
 
-The error we get back states that there were illegal characters in the URL. This is most likely caused by the carriage returns in the file. Lets try a file that should not contain anything that will cause URL issues and see if we are successful.
+The error we get back states that there was a premature end. This is most likely caused by the carriage returns in the file. Lets try a file that should not contain anything that will cause URL issues and see if we are successful.
 
 We are going to change the file we are trying to retrieve to `/etc/hostname`. To do that we will use the `hostname.dtd` found in the `/home/vagrant/dtds` directory.
 

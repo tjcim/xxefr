@@ -31,6 +31,8 @@ And what we submit:
 <name></name>
 ```
 
+![](/static/img/brute_results.png)
+
 ## Error Based
 
 The contents of the dtd in `/home/vagrant/dtds/brute_error.dtd`
@@ -51,3 +53,5 @@ The contents of the dtd in `/home/vagrant/dtds/brute_error.dtd`
 
 <name></name>
 ```
+
+![](/static/img/brute_error_results.png)

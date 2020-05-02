@@ -64,6 +64,12 @@
     append: yes
   become: yes
 
+- name: Set php folder to be writeable by group
+  file:
+    path: /vagrant/php
+    state: directory
+    mode: '0775'
+
 - name: Restart php-fpm
   service:
     name: php7.2-fpm

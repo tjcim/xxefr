@@ -2,6 +2,27 @@
 
 The XXE Firing Range (xxefr) is designed to provide a learning environment for XXE attacks. xxefr is a Vagrant-based virtual machine provisioned with Ansible and has three components: a documentation site, a Java application and a PHP application. The vagrant box also includes an Eclipse install so that you can view and modify the Java app.
 
+## Starting xxefr
+
+**System Requirements**:
+
+* VirtualBox
+* Vagrant
+* Ansible
+* Port 8085 free
+
+**Cloning XXEFR**:
+
+```
+git clone --recursive https://github.com/tjcim/xxefr
+cd xxefr
+vagrant up
+```
+
+Once up visit https://localhost:8085, there you will find links to the documentation site as well as the Java application.
+
+Java Application Username/Password: `user@xxefr.com`:`xxe`
+
 ## XXEFR Components
 
 ### Documentation Site
@@ -52,25 +73,6 @@ There are some specific exercises for the PHP site that include some differences
 
 ![](img/php.png)
 
-## System Requirements
-
-* VirtualBox
-* Vagrant
-* Ansible
-
-Port 8085 free
-
-## Starting the App
-
-```
-git clone https://github.com/tjcim/xxefr
-cd xxefr
-vagrant up
-```
-
-Once up visit https://localhost:8085, there you will find links to the documentation site as well as the Java application.
-
-Java Application Username/Password: `user@xxefr.com`:`xxe`
 
 ## URLs for the apps
 
