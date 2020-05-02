@@ -89,18 +89,3 @@ There are some specific exercises for the PHP site that include some differences
 * DTD files are found here: `/home/vagrant/dtds`
 * Test files are found here: `/home/vagrant/test_files`
 * XXE tools are found here: `/home/vagrant/tools`
-
-# TODO
-
-* Move from xxe_java to xxefr
-* Read through the site to make sure it all works and check for spelling errors
-* Figure out how to deploy app to DO
-* Publish to github
-
-# DO Changes
-
-* Vagrantfile
-* Nginx for port 80/443
-* Letsencrypt
-* Hugo baseURL
-* Nginx will need to serve the DTD files from the localhost (python will not allow multiple threads)

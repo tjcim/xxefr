@@ -12,19 +12,25 @@
     state: latest
   become: yes
 
-  # https://github.com/gohugoio/hugo/releases/download/v0.69.2/hugo_0.69.2_Linux-64bit.deb
+- name: Check if hugo is already installed
+  stat:
+    path: /usr/local/bin/hugo
+  register: hugo
 
 - name: Download Hugo Deb
   get_url:
     url: https://github.com/gohugoio/hugo/releases/download/v0.69.2/hugo_0.69.2_Linux-64bit.deb
     dest: /home/vagrant/hugo.deb
+  when: hugo.stat.exists == False
 
 - name: Install Hugo
   apt:
     deb: /home/vagrant/hugo.deb
   become: yes
+  when: hugo.stat.exists == False
 
 - name: Delete hugo.deb
   file:
     path: /home/vagrant/hugo.deb
     state: absent
+  when: hugo.stat.exists == False
