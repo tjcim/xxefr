@@ -1,72 +1,71 @@
-	<script src="./webjars/jquery/3.5.0/jquery.min.js"></script>
-	<script src="./webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>
-	<script charset="UTF-8" src="./static/js/highlight.min.js"></script>
-	<script>hljs.initHighlightingOnLoad();</script>
-	<script>
-	function escapeXml(unsafe) {
-	    return unsafe.replace(/[<>&'"]/g, function (c) {
-	        switch (c) {
-	            case '<': return '&lt;';
-	            case '>': return '&gt;';
-	            case '&': return '&amp;';
-	            case '\'': return '&apos;';
-	            case '"': return '&quot;';
-	        }
-	    });
-	};
-	function submitXML() {
-		event.preventDefault();
-		var data = $('textarea#data').val();
-		var endpoint = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
-		
-		$.ajax({
-			type: 'POST',
-			url: endpoint,
-			dataType: 'html',
-			data: data,
-			contentType: 'application/xml;',
-			mimeType: 'text/plain; charset=x-user-defined',
-			success: function(response) {
-				if (response) {
-					$("#content").html(response);
-					window.location.hash = "results";
-					document.querySelectorAll('pre code').forEach((block) => {
-					    hljs.highlightBlock(block);
-					});
-					$("html, body").animate({ scrollTop: 0 }, "slow");
-				} else {
-					history.pushState({page: 1}, "enter todo", endpoint)
-					window.location.replace("./list-todos.do");
-				}
-			}
-		});
-	};
-	// reload if there is no hash - this functions like the back button
-	window.onhashchange = function() {
-		if(!window.location.hash) {
-		    window.location.reload();
-		}
-	};
-	
+  <script src="./webjars/jquery/3.5.0/jquery.min.js"></script>
+  <script src="./webjars/bootstrap/4.4.1-1/js/bootstrap.min.js"></script>
+  <script charset="UTF-8" src="./static/js/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+  function escapeXml(unsafe) {
+      return unsafe.replace(/[<>&'"]/g, function (c) {
+          switch (c) {
+              case '<': return '&lt;';
+              case '>': return '&gt;';
+              case '&': return '&amp;';
+              case '\'': return '&apos;';
+              case '"': return '&quot;';
+          }
+      });
+  };
+  function submitXML() {
+    event.preventDefault();
+    var data = $('textarea#data').val();
+    var endpoint = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+    $.ajax({
+      type: 'POST',
+      url: endpoint,
+      dataType: 'html',
+      data: data,
+      contentType: 'application/xml;',
+      mimeType: 'text/plain; charset=x-user-defined',
+      success: function(response) {
+        if (response) {
+          $("#content").html(response);
+          window.location.hash = "results";
+          document.querySelectorAll('pre code').forEach((block) => {
+              hljs.highlightBlock(block);
+          });
+          $("html, body").animate({ scrollTop: 0 }, "slow");
+        } else {
+          history.pushState({page: 1}, "enter todo", endpoint)
+          window.location.replace("./list-todos.do");
+        }
+      }
+    });
+  };
+  // reload if there is no hash - this functions like the back button
+  window.onhashchange = function() {
+    if(!window.location.hash) {
+        window.location.reload();
+    }
+  };
+
     $(function() {
         var $descriptionInput = $('#description');
         var $categoryInput = $('#category');
         var $dataInput = $('#data');
         function onChange() {
             $dataInput.val(
-            		"<todo>\n  " +
-            		"  <description>" + $descriptionInput.val() + "</description>\n" + 
-            		"  <category>" + $categoryInput.val() + "</category>\n" +
-            		"</todo>");
+                "<todo>\n  " +
+                "  <description>" + $descriptionInput.val() + "</description>\n" +
+                "  <category>" + $categoryInput.val() + "</category>\n" +
+                "</todo>");
         };
         $('#description')
-        	.change(onChange)
-        	.keyup(onChange);
+          .change(onChange)
+          .keyup(onChange);
         $('#category')
-        	.change(onChange)
-        	.keyup(onChange);
-        onChange();
+          .change(onChange)
+          .keyup(onChange);
     });
-	</script>
+  </script>
 </body>
 </html>
