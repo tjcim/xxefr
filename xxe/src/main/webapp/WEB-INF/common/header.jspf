@@ -7,6 +7,6 @@
 	<link href="./webjars/bootstrap/4.4.1-1/css/bootstrap.min.css" rel="stylesheet"></link>
 	<link href="./static/css/hljs_styles/atom-one-dark.css" rel="stylesheet"></link>
 	<link href="./static/css/main.css" rel="stylesheet"></link>
-	<title>XXE Firing Range</title>
+	<title>XXEFR - Java</title>
 </head>
 <body>
