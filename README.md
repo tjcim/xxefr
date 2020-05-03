@@ -29,6 +29,8 @@ Java Application Username/Password: `user@xxefr.com`:`xxe`
 
 http://localhost:8085/docs/
 
+![](img/docs.png)
+
 #### Exercises
 
 First we review a bit about XML, define DTDs as well as Entities and then establish some rules for both to follow while building your attacks. The documentation then has exercises and example attacks that can be used against the Java application and the PHP application.
@@ -50,8 +52,6 @@ Tools are available in the `/home/vagrant/tools` directory and the documentation
 * xxeftp
 * 230-OOB
 * XXEinjector
-
-![](img/docs.png)
 
 ### Java Site
 
