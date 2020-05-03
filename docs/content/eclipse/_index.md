@@ -21,6 +21,17 @@ You will be asked where to put the workspace. Enter `/vagrant` and hit Launch
 
 ![eclipse_workspace](/static/img/workspace_directory.png)
 
+File > Import
+
+![](/static/img/import.png)
+
+Existing Projects
+
+![](/static/img/existing_projects.png)
+
+Import Project
+
+![](/static/img/import_project.png)
 
 Update the Maven project by right-clicking on the xxe element, choose Maven > Update Project
 
@@ -29,6 +40,10 @@ Update the Maven project by right-clicking on the xxe element, choose Maven > Up
 Run the project by right-clicking on the xxe element, choose Run As > Maven Build
 
 ![Run As Maven](/static/img/run_as_maven_build.png)
+
+Configure Goals
+
+![](/static/img/edit_config.png)
 
 This will take a bit before it finishes as it will begin to download the required dependencies. At the end you should see something like this in the console:
 

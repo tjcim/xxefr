@@ -35,6 +35,7 @@
 					});
 					$("html, body").animate({ scrollTop: 0 }, "slow");
 				} else {
+					history.pushState({page: 1}, "enter todo", endpoint)
 					window.location.replace("./list-todos.do");
 				}
 			}
@@ -64,6 +65,7 @@
         $('#category')
         	.change(onChange)
         	.keyup(onChange);
+        onChange();
     });
 	</script>
 </body>

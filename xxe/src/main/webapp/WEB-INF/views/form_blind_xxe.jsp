@@ -9,11 +9,11 @@
 		<form>
 			<div class="form-group">
 				<label for="description">Description</label>
-				<input type="text" class="form-control" name="description" id="description" placeholder="Enter Description">
+				<input type="text" class="form-control" name="description" id="description" value="Description">
 			</div>
 			<div class="form-group">
 				<label for="category">Category</label>
-				<input type="text" class="form-control" name="category" id="category" placeholder="Enter Category">
+				<input type="text" class="form-control" name="category" id="category" value="Category">
 			</div>
 			<button type="submit" class="btn btn-primary" onclick="submitXML()">Add ToDo</button>
 			<hr/>

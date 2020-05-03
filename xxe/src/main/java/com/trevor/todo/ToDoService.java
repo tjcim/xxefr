@@ -8,13 +8,12 @@ public class ToDoService {
 	static {
 		todos.add(new ToDo("Define terms (entity, dtd, etc...)", "XXE"));
 		todos.add(new ToDo("Denial of service (billion laughs)", "XXE"));
-		todos.add(new ToDo("Learn XXE identification (include forms)", "XXE"));
-		todos.add(new ToDo("Learn XXE in-band", "XXE"));
-		todos.add(new ToDo("Learn XXE out of band", "XXE"));
+		todos.add(new ToDo("Learn XXE identification", "XXE"));
+		todos.add(new ToDo("Learn XXE - basic", "XXE"));
+		todos.add(new ToDo("Learn XXE - blind", "XXE"));
 		todos.add(new ToDo("Error based XXE", "XXE"));
-		todos.add(new ToDo("XXE SSRF (AWS, ETC, etc...)", "XXE"));
+		todos.add(new ToDo("XXE SSRF", "XXE"));
 		todos.add(new ToDo("Learn XXE and port scanning", "XXE"));
-		todos.add(new ToDo("XXE via image upload", "XXE"));
 	}
 	
 	public List<ToDo> retrieveToDos() {
