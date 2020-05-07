@@ -2,16 +2,52 @@
 
 The XXE Firing Range (xxefr) is designed to provide a learning environment for XXE attacks. xxefr is a Vagrant-based virtual machine provisioned with Ansible and has three components: a documentation site, a Java application and a PHP application. The vagrant box also includes an Eclipse install so that you can view and modify the Java app.
 
-## Starting xxefr
+## Installation
 
-**System Requirements**:
+### Prerequisites
 
-* VirtualBox
-* Vagrant
-* Ansible
+* [VirtualBox](https://www.virtualbox.org/)
+* [Vagrant](https://www.vagrantup.com/)
+* [Ansible](https://www.ansible.com/)
 * Port 8085 free
 
-**Cloning XXEFR**:
+#### Installing VirtualBox
+
+**Arch Linux**
+```bash
+sudo pacman -Sy virtualbox
+```
+
+**Debian-based OS (Debian, Ubuntu, Kali)**
+```bash
+sudo apt install virtualbox
+```
+
+#### Installing Vagrant
+
+**Arch Linux**
+```bash
+sudo pacman -Sy vagrant
+```
+
+**Debian-based OS (Debian, Ubuntu, Kali)**
+```bash
+sudo apt install vagrant
+```
+
+#### Installing Ansible
+
+**Arch Linux**
+```bash
+sudo pacman -Sy ansible
+```
+
+**Debian-based OS (Debian, Ubuntu, Kali)**
+```bash
+sudo apt install ansible
+```
+
+#### Installing xxefr
 
 ```
 git clone --recursive https://github.com/tjcim/xxefr
@@ -57,7 +93,7 @@ Tools are available in the `/home/vagrant/tools` directory and the documentation
 
 http://localhost:8085/xxe/
 
-Practice the exercises found in the documentation site and practice them here. The Java site has three main endpoints:
+Practice the exercises found in the documentation site here. The Java site has three main endpoints:
 
 * Protected - this endpoint follows OWASP guidelines and should be protected from XXE
 * Basic - this endpoint allows for basic XXE exploits
