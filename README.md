@@ -13,12 +13,12 @@ The XXE Firing Range (xxefr) is designed to provide a learning environment for X
 
 #### Installing the Prequisites
 
-**Arch Linux**
+##### Arch Linux
 ```bash
 sudo pacman -Sy virtualbox vagrant ansible
 ```
 
-**Debian-based OS (Debian, Ubuntu, Kali)**
+##### Debian-based OS (Debian, Ubuntu, Kali)
 ```bash
 sudo apt install virtualbox vagrant ansible
 ```
