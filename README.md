@@ -11,40 +11,16 @@ The XXE Firing Range (xxefr) is designed to provide a learning environment for X
 * [Ansible](https://www.ansible.com/)
 * Port 8085 free
 
-#### Installing VirtualBox
+#### Installing the Prequisites
 
 **Arch Linux**
 ```bash
-sudo pacman -Sy virtualbox
+sudo pacman -Sy virtualbox vagrant ansible
 ```
 
 **Debian-based OS (Debian, Ubuntu, Kali)**
 ```bash
-sudo apt install virtualbox
-```
-
-#### Installing Vagrant
-
-**Arch Linux**
-```bash
-sudo pacman -Sy vagrant
-```
-
-**Debian-based OS (Debian, Ubuntu, Kali)**
-```bash
-sudo apt install vagrant
-```
-
-#### Installing Ansible
-
-**Arch Linux**
-```bash
-sudo pacman -Sy ansible
-```
-
-**Debian-based OS (Debian, Ubuntu, Kali)**
-```bash
-sudo apt install ansible
+sudo apt install virtualbox vagrant ansible
 ```
 
 #### Installing xxefr
