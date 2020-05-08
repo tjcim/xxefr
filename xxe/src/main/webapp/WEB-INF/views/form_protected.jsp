@@ -6,7 +6,7 @@
     <div class="alert alert-danger" role="alert">${errorMessage}</div>
     </c:if>
     <h1>Not Vulnerable</h1>
-    <p>This form's endpoint is "/add-todo.do" and it has been configured so that it is protected from XXE attacks.</p>
+    <p>This form's endpoint is "/protected.do" and it has been configured so that it is protected from XXE attacks.</p>
     <p>It uses the guidance from OWASP found here: <a href="https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html#jaxp-documentbuilderfactory-saxparserfactory-and-dom4j">https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html</a>
     <hr/>
     <div>
